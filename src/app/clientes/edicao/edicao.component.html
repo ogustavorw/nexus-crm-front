@@ -1,0 +1,27 @@
+<div class="form-container">
+  <form (ngSubmit)="salvar()">
+    <!-- Nome -->
+    <div class="mb-3">
+      <label for="nomeInput" class="form-label">Nome:</label>
+      <input type="text" class="form-control input-width" id="nomeInput" name="Nome" [(ngModel)]="cliente.nome"
+        placeholder="Digite o modelo do veículo">
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="emailInput" class="form-label">Email:</label>
+      <input type="text" class="form-control input-width" id="emailInput" name="email" [(ngModel)]="cliente.email"
+        placeholder="Digite a email do veículo">
+    </div>
+
+    <!-- Telefone -->
+    <div class="mb-3">
+      <label for="telefoneInput" class="form-label">Telefone:</label>
+      <input type="number" class="form-control input-width" id="telefoneInput" name="telefone"
+        [(ngModel)]="cliente.telefone" placeholder="Digite o telefone">
+    </div>
+
+    <!-- Botão de Submit -->
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+</div>

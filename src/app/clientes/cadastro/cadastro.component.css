@@ -1,0 +1,9 @@
+/* Define o espaçamento lateral */
+.form-container {
+  margin: 0.5rem; /* Espaço de 2rem nas laterais */
+}
+
+/* Define a largura dos inputs para 30% */
+.input-width {
+  width: 30%; /* Largura fixa de 30% */
+}

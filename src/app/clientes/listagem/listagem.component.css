@@ -1,0 +1,27 @@
+/* Define o espaçamento lateral */
+.form-container {
+  margin: 0.5rem; /* Espaço de 2rem nas laterais */
+}
+
+/* Reduzindo o espaçamento interno das colunas */
+.col-sm-2 {
+  padding: auto ; /* Ajuste este valor conforme necessário */
+}
+
+/* Centralizando o texto verticalmente */
+.row.align-items-center div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Controlando o espaçamento vertical entre as linhas */
+.mb-2 {
+  margin-bottom: 0.1rem !important; /* Força o espaçamento vertical */
+}
+
+.container {
+  margin-right: auto;   /* Empurra o container para a direita */
+  margin-left: 0;     /* Remove margem esquerda */
+  float: none !important; /* Garante que não haja flutuação indesejada */
+}

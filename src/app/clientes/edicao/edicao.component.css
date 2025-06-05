@@ -1,0 +1,16 @@
+/* Define a largura dos inputs para 30% */
+.input-width {
+  width: 20%; /* Largura fixa de 30% */
+}
+
+/* Define o espaçamento lateral */
+.form-container {
+  margin: 0.5rem; /* Espaço de 2rem nas laterais */
+}
+
+/* Centraliza horizontalmente os campos */
+.form-group {
+  display: flex;
+  justify-content: center; /* Centraliza os campos na linha */
+  align-items: center;
+}
