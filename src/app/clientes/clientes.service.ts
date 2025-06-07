@@ -7,7 +7,7 @@ import { Cliente } from './clientes.model';
   providedIn: 'root',
 })
 export class ClienteService {
-  private apiURL = 'http://localhost:3000/nexus-crm';
+  private apiURL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
