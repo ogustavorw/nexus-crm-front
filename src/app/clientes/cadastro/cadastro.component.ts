@@ -24,10 +24,12 @@ export class CadastroComponent {
     private router: Router
   ) {}
 
+
   salvar() {
     this.clienteService.cadastrarCliente(this.cliente).subscribe(() => {
       this.router.navigate(['/cliente/listagem'])
     })
   }
+
 
 }

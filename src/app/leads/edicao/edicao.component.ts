@@ -39,7 +39,7 @@ export class EdicaoComponent implements OnInit {
     if (!this.id) {
       //é string
 
-      this.router.navigate(['/lead/listagem']);
+      this.router.navigate(['/lead/edicao']);
       return;
     }
 
