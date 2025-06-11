@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Cliente } from '../clientes.model';
-import { ClienteService } from '../clientes.service';
+import { Lead } from '../leads.model';
+import { LeadService } from '../leads.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,21 +12,24 @@ import { ClienteService } from '../clientes.service';
   styleUrl: './cadastro.component.css',
 })
 export class CadastroComponent {
-    cliente: Cliente = {
+    lead: Lead = {
     id: '',
     nome: '',
     email: '',
     telefone: '',
+    origem: '',
+    status:'',
+    clienteId: '',
   };
 
   constructor(
-    private clienteService: ClienteService,
+    private leadService: LeadService,
     private router: Router
   ) {}
 
   salvar() {
-    this.clienteService.cadastrarCliente(this.cliente).subscribe(() => {
-      this.router.navigate(['/cliente/listagem'])
+    this.leadService.cadastrarLead(this.lead).subscribe(() => {
+      this.router.navigate(['/listagem'])
     })
   }
 

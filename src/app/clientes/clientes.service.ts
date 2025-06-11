@@ -7,7 +7,7 @@ import { Cliente } from './clientes.model';
   providedIn: 'root',
 })
 export class ClienteService {
-  private apiURL = 'http://localhost:3000';
+  private apiURL = 'http://localhost:3000/cliente';
 
   constructor(private http: HttpClient) {}
 
@@ -19,12 +19,12 @@ export class ClienteService {
     return this.http.post<Cliente>(this.apiURL, Cliente);
   }
 
-  buscarCliente(id: number): Observable<Cliente> {
+  buscarCliente(id: string): Observable<Cliente> {
     return this.http.get<Cliente>(`${this.apiURL}/${id}`)
   }
 
   atualizarCliente(
-    id: number,
+    id: string,
   Cliente:Cliente): Observable<Cliente> {
     return this.http.patch<Cliente>(`${this.apiURL}/${id}`, Cliente)
   }

@@ -1,0 +1,26 @@
+<div class="form-container">
+  <a routerLink="/leads/cadastro" class="btn btn-primary mb-3">Novo Cadastro</a>
+
+  <div class="container">
+    <!-- Cabeçalho -->
+    <div class="row text-center fw-bold mb-2">
+      <div class="col-sm-2">nome</div>
+      <div class="col-sm-2">email</div>
+      <div class="col-sm-2">telefone</div>
+      <div class="col-sm-2">status</div>
+      <div class="col-sm-2">origem</div>
+    </div>
+
+    <!-- Corpo da tabela -->
+    <div *ngFor="let leads of lead" class="row align-items-center text-center mb-2">
+      <div class="col-sm-2">{{leads.nome}}</div>
+      <div class="col-sm-2">{{leads.email}}</div>
+      <div class="col-sm-2">{{leads.telefone}}</div>
+      <div class="col-sm-2">{{leads.status}}</div>
+      <div class="col-sm-2">{{leads.origem}}</div>
+      <div class="col-sm-2">
+        <a [routerLink]="['/edicao', leads.id]" class="btn btn-sm btn-outline-primary">Edit</a>
+      </div>
+    </div>
+  </div>
+</div>

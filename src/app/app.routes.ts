@@ -1,17 +1,30 @@
 import { Routes } from '@angular/router';
-import { EdicaoComponent } from './clientes/edicao/edicao.component';
+
+// Clientes
+import { ListagemComponent } from './clientes/listagem/listagem.component';
 import { CadastroComponent } from './clientes/cadastro/cadastro.component';
-import { ListagemComponent } from './clientes/listagem/listagem.comnponent';
+import { EdicaoComponent } from './clientes/edicao/edicao.component';
+
+// Leads
+import { ListagemComponent as LeadListagem } from './leads/listagem/listagem.component';
+import { CadastroComponent as LeadCadastro } from './leads/cadastro/cadastro.component';
+import { EdicaoComponent as LeadEdicao } from './leads/edicao/edicao.component';
 
 
 export const routes: Routes = [
-    
-    {path: '', redirectTo: 'listagem', pathMatch: 'full'},
+  // Rota inicial
+  { path: '', redirectTo: 'clientes/listagem', pathMatch: 'full' },
 
-    {path: 'listagem', component: ListagemComponent},
-    
-    {path: 'cadastro', component: CadastroComponent},
-    
-    {path: 'edicao/:id', component: EdicaoComponent}
+  // Rotas CLIENTES
+  { path: 'clientes/listagem', component: ListagemComponent },
+  { path: 'clientes/cadastro', component: CadastroComponent },
+  { path: 'clientes/:id/editar', component: EdicaoComponent },
 
+  // Rotas LEADS
+  { path: 'leads/listagem', component: LeadListagem },
+  { path: 'leads/cadastro', component: LeadCadastro },
+  { path: 'leads/:id/editar', component: LeadEdicao },
+
+  // Rota "not found"
+  { path: '**', redirectTo: 'clientes/listagem' }
 ];

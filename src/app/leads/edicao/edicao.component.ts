@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente } from '../clientes.model';
-import { ClienteService } from '../clientes.service';
+import { Lead } from '../leads.model';
+import { LeadService } from '../leads.service';
 
 @Component({
   selector: 'app-edicao',
@@ -13,43 +13,46 @@ import { ClienteService } from '../clientes.service';
 })
 
 export class EdicaoComponent implements OnInit {
-  cliente: Cliente = {
+    lead: Lead = {
     id: '',
     nome: '',
     email: '',
     telefone: '',
+    origem: '',
+    status:'',
+    clienteId: '',
   };
   private id!: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private clienteService: ClienteService
+    private leadService: LeadService
   ) {}
 
   ngOnInit(): void {
     this.id = String(this.route.snapshot.paramMap.get('id'));
-    this.carregarCliente();
+    this.carregarLead();
   }
 
-  carregarCliente(): void {
+  carregarLead(): void {
     if (!this.id) {
       //é string
 
-      this.router.navigate(['/cliente/listagem']);
+      this.router.navigate(['/lead/listagem']);
       return;
     }
 
-    this.clienteService.buscarCliente(this.id).subscribe((a) => {
-      this.cliente = a;
+    this.leadService.buscarLead(this.id).subscribe((a) => {
+      this.lead = a;
     });
   }
 
   salvar(): void {
-    if (!this.cliente) return;
+    if (!this.lead) return;
 
-    this.clienteService.atualizarCliente(this.id, this.cliente).subscribe(() => {
-      this.router.navigate(['/cliente/listagem']);
+    this.leadService.atualizarLead(this.id, this.lead).subscribe(() => {
+      this.router.navigate(['/lead/listagem']);
     });
   }
 }
