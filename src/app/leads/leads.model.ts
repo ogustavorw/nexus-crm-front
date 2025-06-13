@@ -4,6 +4,6 @@ export interface Lead {
   email: string;
   telefone: string;
   origem: string;
-  status: string;
+  status: string; // Pode ser 'novo', 'contatado', 'interessado', 'fechado'
   clienteId: string;
 }

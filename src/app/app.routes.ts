@@ -10,6 +10,8 @@ import { ListagemComponent as LeadListagem } from './leads/listagem/listagem.com
 import { CadastroComponent as LeadCadastro } from './leads/cadastro/cadastro.component';
 import { EdicaoComponent as LeadEdicao } from './leads/edicao/edicao.component';
 
+//Kanban
+import { KanbanComponent } from './leads/kanban/kanban.component';
 
 export const routes: Routes = [
   // Rota inicial
@@ -25,6 +27,12 @@ export const routes: Routes = [
   { path: 'leads/cadastro', component: LeadCadastro },
   { path: 'leads/:id/editar', component: LeadEdicao },
 
+  // Rota Kanban
+  {path: 'leads/kanban', component: KanbanComponent},
+  
   // Rota "not found"
   { path: '**', redirectTo: 'clientes/listagem' }
+
+
+
 ];
