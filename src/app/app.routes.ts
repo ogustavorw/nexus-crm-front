@@ -25,7 +25,7 @@ export const routes: Routes = [
   // Rotas LEADS
   { path: 'leads/listagem', component: LeadListagem },
   { path: 'leads/cadastro', component: LeadCadastro },
-  { path: 'leads/:id/editar', component: LeadEdicao },
+  { path: 'leads/:id', component: LeadEdicao },
 
   // Rota Kanban
   {path: 'leads/kanban', component: KanbanComponent},
