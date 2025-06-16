@@ -1,5 +1,5 @@
 <div class="form-container">
-  <a routerLink="/cliente/cadastro" class="btn btn-primary mb-3">Novo Cadastro</a>
+  <a routerLink="/clientes/cadastro" class="btn btn-primary mb-3">Novo Cadastro</a>
 
   <div class="container">
     <!-- Cabeçalho -->
@@ -15,7 +15,7 @@
       <div class="col-sm-2">{{cliente.email}}</div>
       <div class="col-sm-2">{{cliente.telefone}}</div>
       <div class="col-sm-2">
-        <a [routerLink]="['/cliente/edicao', cliente.id]" class="btn btn-sm btn-outline-primary">Edit</a>
+        <a [routerLink]="['/clientes', cliente.id]" class="btn btn-sm btn-outline-primary">Edit</a>
       </div>
     </div>
   </div>

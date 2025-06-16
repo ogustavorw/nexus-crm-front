@@ -36,7 +36,7 @@ export class EdicaoComponent implements OnInit {
     if (!this.id) {
       //é string
 
-      this.router.navigate(['/cliente/listagem']);
+      this.router.navigate(['/clientes/listagem']);
       return;
     }
 
@@ -49,7 +49,7 @@ export class EdicaoComponent implements OnInit {
     if (!this.cliente) return;
 
     this.clienteService.atualizarCliente(this.id, this.cliente).subscribe(() => {
-      this.router.navigate(['/cliente/listagem']);
+      this.router.navigate(['/clientes/listagem']);
     });
   }
 }

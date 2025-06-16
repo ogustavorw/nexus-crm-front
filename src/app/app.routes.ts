@@ -20,7 +20,7 @@ export const routes: Routes = [
   // Rotas CLIENTES
   { path: 'clientes/listagem', component: ListagemComponent },
   { path: 'clientes/cadastro', component: CadastroComponent },
-  { path: 'clientes/:id/editar', component: EdicaoComponent },
+  { path: 'clientes/:id', component: EdicaoComponent },
 
   // Rotas LEADS
   { path: 'leads/listagem', component: LeadListagem },

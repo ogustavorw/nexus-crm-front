@@ -27,7 +27,7 @@ export class CadastroComponent {
 
   salvar() {
     this.clienteService.cadastrarCliente(this.cliente).subscribe(() => {
-      this.router.navigate(['/cliente/listagem'])
+      this.router.navigate(['/clientes/listagem'])
     })
   }
 
