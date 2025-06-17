@@ -39,7 +39,7 @@ export class EdicaoComponent implements OnInit {
     if (!this.id) {
       //é string
 
-      this.router.navigate(['/lead/edicao']);
+      this.router.navigate(['/leads/edicao']);
       return;
     }
 
@@ -52,7 +52,7 @@ export class EdicaoComponent implements OnInit {
     if (!this.lead) return;
 
     this.leadService.atualizarLead(this.id, this.lead).subscribe(() => {
-      this.router.navigate(['/lead/listagem']);
+      this.router.navigate(['/leads/listagem']);
     });
   }
 }
