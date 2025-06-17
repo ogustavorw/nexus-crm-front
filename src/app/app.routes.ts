@@ -22,13 +22,13 @@ export const routes: Routes = [
   { path: 'clientes/cadastro', component: CadastroComponent },
   { path: 'clientes/:id', component: EdicaoComponent },
 
+  // Rota Kanban
+  {path: 'leads/kanban', component: KanbanComponent},
+
   // Rotas LEADS
   { path: 'leads/listagem', component: LeadListagem },
   { path: 'leads/cadastro', component: LeadCadastro },
   { path: 'leads/:id', component: LeadEdicao },
-
-  // Rota Kanban
-  {path: 'leads/kanban', component: KanbanComponent},
   
   // Rota "not found"
   { path: '**', redirectTo: 'clientes/listagem' }
