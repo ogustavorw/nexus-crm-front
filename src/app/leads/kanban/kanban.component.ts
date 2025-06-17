@@ -10,7 +10,7 @@ interface Lead {
   telefone: string;
   origem: string;
   status: string;
-  clienteId: string;
+  clienteId: string | null;
 }
 
 interface Column {

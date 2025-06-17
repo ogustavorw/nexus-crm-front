@@ -1,1 +1,49 @@
-<p>cadastro works!</p>
+<div class="form-container">
+    <form (ngSubmit)="salvar()">
+        <!-- Nome -->
+        <div class="mb-3">
+            <label for="nomeInput" class="form-label">Nome:</label>
+            <input type="text" class="form-control input-width" id="nomeInput" name="Nome"
+             [(ngModel)]="lead.nome" placeholder="Digite o nome do cliente">
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="emailInput" class="form-label">Email:</label>
+            <input type="text" class="form-control input-width" id="emailInput" name="email"
+             [(ngModel)]="lead.email" placeholder="Digite a email do cliente">
+        </div>
+
+        <!-- Telefone -->
+        <div class="mb-3">
+            <label for="telefoneInput" class="form-label">Telefone:</label>
+            <input type="text" class="form-control input-width" id="telefoneInput" name="telefone"
+             [(ngModel)]="lead.telefone" placeholder="Digite o telefone">
+        </div>
+
+        <!-- Status -->
+        <div class="mb-3">
+            <label for="statusInput" class="form-label">Status:</label>
+            <input type="text" class="form-control input-width" id="statusInput" name="status"
+             [(ngModel)]="lead.status" placeholder="Digite o status">
+        </div>
+
+
+        <!-- Origem -->
+        <div class="mb-3">
+            <label for="origemInput" class="form-label">Origem:</label>
+            <input type="text" class="form-control input-width" id="origemInput" name="origem"
+             [(ngModel)]="lead.origem" placeholder="Digite a origem">
+        </div>
+
+        <!-- Este campo submete o clienteID -->
+        <div class="mb-3">
+            <label for="ClienteInput" class="form-label">Cliente:</label>
+            <input type="text" class="form-control input-width" id="clienteInput" name="cliente"
+             [(ngModel)]="lead.clienteNome" placeholder="Quem foi o cliente que indicou este lead?">
+        </div>
+
+        <!-- Botão de Submit -->
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</div>

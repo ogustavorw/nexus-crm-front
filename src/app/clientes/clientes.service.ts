@@ -9,7 +9,7 @@ import { Cliente } from './clientes.model';
 export class ClienteService {
   private apiURL = 'http://localhost:3000/clientes';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   listarCliente(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.apiURL);
@@ -25,10 +25,14 @@ export class ClienteService {
 
   atualizarCliente(
     id: string,
-  Cliente:Cliente): Observable<Cliente> {
+    Cliente: Cliente): Observable<Cliente> {
     return this.http.patch<Cliente>(`${this.apiURL}/${id}`, Cliente)
   }
   deletarCliente(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiURL}/${id}`)
+  }
+
+  findByNome(nome: string): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.apiURL}/nome/${nome}`);
   }
 }
