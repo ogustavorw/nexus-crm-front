@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DragDropModule, CdkDragDrop } from '@angular/cdk/drag-drop';
+import { LeadService } from '../leads.service';
 
 interface Lead {
   id: string;
@@ -25,7 +26,7 @@ interface Column {
   standalone: true,
   imports: [CommonModule, DragDropModule]
 })
-export class KanbanComponent {
+export class KanbanComponent implements OnInit {
   columns: Column[] = [
     { title: 'Novo', status: 'novo', leads: [] },
     { title: 'Contatado', status: 'contatado', leads: [] },
@@ -33,24 +34,40 @@ export class KanbanComponent {
     { title: 'Fechado', status: 'fechado', leads: [] }
   ];
 
+  constructor(private LeadService: LeadService) { } // injetando o serviço
+
+  ngOnInit() {
+    this.carregarLeads();
+  }
+
+  carregarLeads() {
+    this.LeadService.getLeadsPorStatus().subscribe(data => {
+      this.columns = this.columns.map(col => ({
+        ...col,
+        leads: data[col.status as keyof typeof data] || []
+      }));
+    });
+  }
+
   onItemDrop(event: CdkDragDrop<any, Column>) {
-  const lead = event.item.data as Lead;
+    const lead = event.item.data as Lead;
 
-  // Garanta que estamos lidando com leads
-  if (!lead || !lead.id) return;
+    if (!lead.id) return;
 
-  const oldCol = event.previousContainer.data as Column;
-  const newCol = event.container.data as Column;
+    const oldCol = event.previousContainer.data as Column;
+    const newCol = event.container.data as Column;
 
-  if (oldCol.status === newCol.status) return;
+    if (oldCol.status === newCol.status) return;
 
-  // Remove da antiga, adiciona na nova
-  const movedLead = oldCol.leads.find(l => l.id === lead.id);
+    // Remove da coluna antiga e adiciona na nova
+    const movedLead = oldCol.leads.find(l => l.id === lead.id);
 
-  if (!movedLead) return;
+    if (!movedLead) return;
 
-  oldCol.leads = oldCol.leads.filter(l => l.id !== lead.id);
-  newCol.leads = [...newCol.leads, movedLead];
-  movedLead.status = newCol.status;
-}
+    oldCol.leads = oldCol.leads.filter(l => l.id !== lead.id);
+    newCol.leads = [...newCol.leads, movedLead];
+    movedLead.status = newCol.status;
+
+    console.log('✅ Status atualizado localmente:', movedLead.status);
+  }
 }
