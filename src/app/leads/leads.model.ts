@@ -5,6 +5,6 @@ export interface Lead {
   telefone: string;
   origem: string;
   status: string; // Pode ser 'novo', 'contatado', 'interessado', 'fechado'
-  clienteId: string | null;
-  clienteNome?: string;
+  clienteId: string | null; //usado na api
+  clienteNome?: string; //apenas para cadastro no front
 }

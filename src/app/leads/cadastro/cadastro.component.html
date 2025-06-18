@@ -40,7 +40,7 @@
         <div class="mb-3">
             <label for="ClienteInput" class="form-label">Cliente:</label>
             <input type="text" class="form-control input-width" id="clienteInput" name="cliente"
-             [(ngModel)]="lead.clienteNome" placeholder="Quem foi o cliente que indicou este lead?">
+             [(ngModel)]="lead.clienteNome"  (input)="onSearchCliente()" placeholder="Quem foi o cliente que indicou este lead?">
         </div>
 
         <!-- Botão de Submit -->

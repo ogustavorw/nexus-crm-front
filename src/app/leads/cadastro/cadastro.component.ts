@@ -34,13 +34,15 @@ export class CadastroComponent {
   ) { }
 
   onSearchCliente() {
-    if (!this.lead.clienteId) return;
-
-    this.clienteService.findByNome(this.lead.clienteId).subscribe(clientes => {
-      this.clientesEncontrados = clientes;
-
+    console.log('Buscando cliente pelo nome:', this.lead.clienteNome);
+    if (!this.lead.clienteNome) return;
+    this.clienteService.findByNome(this.lead.clienteNome).subscribe(clientes => {
+      console.log('Clientes encontrados:', clientes);
       if (clientes.length === 1) {
-        this.lead.clienteId = clientes[0].id;
+        console.log('Encontrado cliente único:', clientes[0]);
+        this.lead.clienteId = clientes[0].id; // Atualiza o ID antes do cadastro
+      } else {
+        this.lead.clienteId = null; // ou exibe mensagem de erro
       }
     });
   }
@@ -48,7 +50,7 @@ export class CadastroComponent {
 
   salvar() {
     this.leadService.cadastrarLead(this.lead).subscribe(() => {
-      this.router.navigate(['/listagem'])
+      this.router.navigate(['/leads/listagem'])
     })
   }
 
